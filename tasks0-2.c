@@ -95,10 +95,7 @@ void str_print(const char *s)
 {
 	int m = 0;
 
-	while (s[m] != '\0')
-	{
-		m++;
-	}
-
+	for (m = 0; s[m] != '\0'; m++)
+		;
 	write(1, s, m);
 }
