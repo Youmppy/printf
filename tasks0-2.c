@@ -53,8 +53,8 @@ int str_print(const char *s)
 
 	for (m = 0; s[m] != '\0'; m++)
 	{
-		i++
+		i++;
 	}
 	write(1, s, m);
-	return (n);
+	return (i);
 }

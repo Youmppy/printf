@@ -26,19 +26,19 @@ int format_checker(char c, va_list ap, int n)
 		write(1, "%", 1);
 		n++;
 	}
-	else if (c == 'd' || c == 'i')
-	{
-		int num = va_arg(ap, int);
+	/*else if (c == 'd' || c == 'i')
+	 {
+		//int num = va_arg(ap, int);
 
-		d_i(num);
-	}
+		//d_i(num);
+	}*/
 	else if (c == 'b')
 	{
 		int num = va_arg(ap, int);
 
 		b_print(num);
 	}
-	return (n);
+	return (n); 
 }
 
 /**
