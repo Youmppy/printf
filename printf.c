@@ -50,6 +50,7 @@ void format_checker(char c, va_list ap)
 int _printf(const char *format, ...)
 {
 	int i = 0;
+	int c =0;
 	va_list ap;
 
 	va_start(ap, format);
@@ -70,10 +71,11 @@ int _printf(const char *format, ...)
 			{
 				format_checker(format[i], ap);
 				i++;
+				c++;
 			}
 		}
 	}
 
 	va_end(ap);
-	return (i);
+	return (c);
 }
