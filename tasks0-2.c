@@ -46,11 +46,15 @@ void b_print(int x)
  * @s: string to print
  * Return: void
  */
-void str_print(const char *s)
+int str_print(const char *s)
 {
 	int m = 0;
+	int i = 0;
 
 	for (m = 0; s[m] != '\0'; m++)
-		;
+	{
+		i++
+	}
 	write(1, s, m);
+	return (n);
 }

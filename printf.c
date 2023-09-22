@@ -1,60 +1,59 @@
 #include "main.h"
-#include <unistd.h>
-#include <stdarg.h>
 
 /**
- * format_checker - Custom printf function
- * @c: The format specifier character.
- * @ap: The va_list containing the arguments.
- *
- * This function processes the format specifier
- * and prints the corresponding values.
+ * format_checker - custom printf function
+ * @c: format string
+ * @ap: list
+ * Return: number of characters printed
  */
-void format_checker(char c, va_list ap)
+int format_checker(char c, va_list ap, int n)
 {
 	if (c == 'c')
 	{
 		char ch = va_arg(ap, int);
 
 		write(1, &ch, 1);
+		n++;
 	}
 	else if (c == 's')
 	{
-		char *str = va_arg(ap, char *);
+		char *str = va_arg(ap, char*);
 
-		if (str != NULL)
-		{
-			while (*str)
-			{
-				write(1, str, 1);
-				str++;
-			}
-		}
-		else
-		{
-			write(1, "(null)", 6);
-		}
+		n = n + str_print(str);
 	}
 	else if (c == '%')
 	{
 		write(1, "%", 1);
+		n++;
 	}
+	else if (c == 'd' || c == 'i')
+	{
+		int num = va_arg(ap, int);
+
+		d_i(num);
+	}
+	else if (c == 'b')
+	{
+		int num = va_arg(ap, int);
+
+		b_print(num);
+	}
+	return (n);
 }
 
 /**
- * _printf - Custom printf function.
- * @format: The format string.
- *
- * Return: The number of characters printed.
+ * _printf - custom printf function
+ * @format: format string
+ * Return: number of characters printed
  */
 int _printf(const char *format, ...)
 {
 	int i = 0;
-	int c =0;
+	int c = 0;
 	va_list ap;
 
 	va_start(ap, format);
-	if (!format)
+	if (!format[i])
 		return (-1);
 
 	while (format[i] != '\0')
@@ -67,12 +66,13 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-			i++
-			format_checker(format[i], ap);
+			i++;
+			format_checker(format[i], ap, c);
 			i++;
 		}
 	}
 
 	va_end(ap);
-	return (c);
+	return (i);
 }
+
