@@ -63,16 +63,13 @@ int _printf(const char *format, ...)
 		{
 			write(1, format + i, 1);
 			i++;
+			c++;
 		}
 		else
 		{
+			i++
+			format_checker(format[i], ap);
 			i++;
-			if (format[i] != '\0')
-			{
-				format_checker(format[i], ap);
-				i++;
-				c++;
-			}
 		}
 	}
 
