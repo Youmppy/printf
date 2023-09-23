@@ -73,6 +73,6 @@ int _printf(const char *format, ...)
 	}
 
 	va_end(ap);
-	return (i);
+	return (c);
 }
 
