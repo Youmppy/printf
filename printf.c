@@ -31,6 +31,7 @@ int format_checker(char c, va_list ap, int n)
 	else if (c == 'd' || c == 'i')
 	{
 		int num = va_arg(ap, int);
+
 		d_i(num);
 	}
 	else

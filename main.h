@@ -15,7 +15,7 @@ int str_print(const char *s);
 int d_i(int d);
 
 /* Function to print an integer in binary format */
-void b_print(int x);
+int b_print(int x);
 
 /* Custom printf function */
 int _printf(const char *format, ...);
