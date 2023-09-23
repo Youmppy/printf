@@ -12,7 +12,8 @@ int _putchar(char c);
 int str_print(const char *s); 
 
 /* Function to convert an integer to a string */
-void d_i(int d);
+int d_i(int d);
+
 /* Function to print an integer in binary format */
 void b_print(int x);
 

@@ -28,11 +28,10 @@ int format_checker(char c, va_list ap, int n)
 		write(1, "%", 1);
 		n++;
 	}
-	else if (c == 'b')
+	else if (c == 'd' || c == 'i')
 	{
 		int num = va_arg(ap, int);
-
-		b_print(num);
+		d_i(num);
 	}
 	else
 	{
