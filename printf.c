@@ -73,7 +73,7 @@ int _printf(const char *format, ...)
 		else
 		{
 			i++;
-			format_checker(format[i], ap, c);
+			c = c + format_checker(format[i], ap, c);
 			i++;
 		}
 	}
