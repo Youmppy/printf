@@ -25,7 +25,7 @@ int format_checker(char c, va_list ap, int n)
 	}
 	else if (c == '%')
 	{
-		write(1, "%%", 1);
+		write(1, "%", 1);
 		n++;
 	}
 	else if (c == 'b')
