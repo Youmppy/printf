@@ -4,8 +4,10 @@
  * format_checker - custom printf function
  * @c: format string
  * @ap: list
+ * @n: int
  * Return: number of characters printed
  */
+
 int format_checker(char c, va_list ap, int n)
 {
 	if (c == 'c')
@@ -26,25 +28,19 @@ int format_checker(char c, va_list ap, int n)
 		write(1, "%%", 1);
 		n++;
 	}
-	/*else if (c == 'd' || c == 'i')
-	 {
-		//int num = va_arg(ap, int);
-
-		//d_i(num);
-	}
 	else if (c == 'b')
 	{
 		int num = va_arg(ap, int);
 
 		b_print(num);
-	}*/
+	}
 	else
 	{
 		write(1, &c, 1);
 		n++;
 	}
 
-	return (n); 
+	return (n);
 }
 
 /**
