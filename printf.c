@@ -41,7 +41,7 @@ int format_checker(char c, va_list ap, int n)
 	else
 	{
 		write(1, &c, 1);
-		n++
+		n++;
 	}
 
 	return (n); 
