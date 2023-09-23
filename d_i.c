@@ -1,11 +1,10 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include <unistd.h>
-#include "main.h"
+#include <stdlib.h>
+
 /**
  * d_i - prints int
  * @d: int to print
- * Return: void
+ * Return: the number of characters printed
  */
 
 int d_i(int d)
@@ -16,11 +15,18 @@ int d_i(int d)
 	int num_digits = 0;
 	int i;
 	char *s;
+	int char_count = 0;
 
 	if (d < 0)
 	{
 		is_negative = 1;
 		d = -d;
+	}
+
+	if (d == 0)
+	{
+		write(1, "0", 1);
+		return 1; // Handle zero separately
 	}
 
 	while (b != 0)
@@ -32,7 +38,7 @@ int d_i(int d)
 	s = (char *)malloc(num_digits + 1);
 	if (s == NULL)
 	{
-		return (1);
+		return -1; // Handle memory allocation failure
 	}
 	s[num_digits] = '\0';
 
@@ -46,10 +52,12 @@ int d_i(int d)
 	if (is_negative)
 	{
 		write(1, "-", 1);
+		char_count++;
 	}
 
 	write(1, s, num_digits);
+	char_count += num_digits;
 
 	free(s);
-	return (is_negative + num_digits);
+	return char_count;
 }
