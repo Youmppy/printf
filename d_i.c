@@ -26,7 +26,7 @@ int d_i(int d)
 	if (d == 0)
 	{
 		write(1, "0", 1);
-		return 1; // Handle zero separately
+		return (1);
 	}
 
 	while (b != 0)
@@ -38,7 +38,7 @@ int d_i(int d)
 	s = (char *)malloc(num_digits + 1);
 	if (s == NULL)
 	{
-		return -1; // Handle memory allocation failure
+		return (0);
 	}
 	s[num_digits] = '\0';
 
