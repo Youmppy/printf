@@ -31,13 +31,19 @@ int format_checker(char c, va_list ap, int n)
 		//int num = va_arg(ap, int);
 
 		//d_i(num);
-	}*/
+	}
 	else if (c == 'b')
 	{
 		int num = va_arg(ap, int);
 
 		b_print(num);
+	}*/
+	else
+	{
+		write(1, &c, 1);
+		n++
 	}
+
 	return (n); 
 }
 
